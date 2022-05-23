@@ -1,0 +1,143 @@
+:root {
+    --font: 'Zilla Slab', serif;
+    --light-gray : #e7e7e7;
+    --orange: #ED5728;
+    --white: #fff;
+    --black: #202020;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; 
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--font);
+    font-size: 1.6rem;
+    line-height: 2;
+    background-color: var(--light-gray);
+    color: var(--black);
+}
+
+/** Gobals **/
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-top: 1rem;
+}
+
+/** Header **/
+
+.header {
+    background-color: var(--orange);
+}
+
+.logo {
+    border-radius: 50%;
+    padding: 1rem 0;
+    width: 20%;
+}
+
+@media (min-width: 768px) {
+    .logo {
+        width: 10rem;
+    }
+}
+
+/** Register **/
+
+.form {
+    background-color: var(--white);
+    border-radius: 2rem;
+    display: block;
+    padding: 0.5rem 3rem;
+    width: 90%;
+}
+
+.form__field {
+    border-style: none;
+    border-bottom-style: ridge;
+    border-bottom-color: var(--light-gray);
+    color: var(--black);
+    font-weight: bold;
+    margin-bottom: 2.5rem;
+    width: 100%;
+}
+
+.form__submit {
+    background-color: var(--orange);
+    border-color: var(--orange);
+    border-radius: 2rem;
+    border-style: solid;
+    color: var(--white);
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    height: 4rem;
+    width: 100%;    
+}
+
+@media (min-width: 768px) {
+    .form {
+        width: 70%;
+    }
+
+    .form__submit {
+        width: 50%;
+    }
+}
+
+/** Register **/
+
+.form__legend {
+    font-weight: bold;
+}
+
+.form__action {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.form__select {
+    margin-left: 2rem;
+    width: 50%;
+}
+
+/** Success **/
+
+.div__success {
+    background-color: green;
+    border-radius: 2rem;
+    color: var(--white);
+    padding: 1rem 2rem;
+    width: 90%;
+}
+
+.google_form {
+    background-color: var(--orange);
+    border-color: var(--orange);
+    border-radius: 2rem;
+    border-style: solid;
+    color: var(--white);
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-decoration: none;
+    width: 100%;    
+}
+
+@media (min-width: 768px) {
+    .div__success {
+        width: 70%;
+    }
+}
