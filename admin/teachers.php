@@ -1,3 +1,8 @@
+<?php 
+    require_once 'controller/teachers_controller.php';
+    $resultGet = $_GET['result'] ?? null;
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -45,6 +50,10 @@
 
         <h1>Maestros registrados</h1>
 
+        <?php if(intval($resultGet) === 1) : ?>
+            <p class="success__alert">Maestro actualizado correctamente.</p>
+        <?php endif; ?>
+
         <div class="table-container">
             <table class="table-menu">
                 <tr class="headers">
@@ -53,24 +62,18 @@
                     <th>Nombre</th>
                     <th>Editar</th>
                 </tr>
-                    
+                
+                <?php while($teacher = mysqli_fetch_assoc($result)) : ?>
                 <tr>
-                    <td>19666</td>
-                    <td>sebastian.rubio@iest.edu.mx</td>
-                    <td>Sebastián Rubio Quiroz</td>
+                    <td><?php echo $teacher['id_iest'] ?></td>
+                    <td><?php echo $teacher['email'] ?></td>
+                    <td><?php echo $teacher['name'] ?></td>
                     <td>
-                        <a href="edit_teacher.php"><button class="link__meet">Editar</button></a>
+                        <a href="edit_teacher.php?id_iest=<?php echo $teacher['id_iest']; ?>"><button class="link__meet">Editar</button></a>
                     </td>
                 </tr>
+                <?php endwhile; ?>
 
-                <tr>
-                    <td>19666</td>
-                    <td>sebastian.rubio@iest.edu.mx</td>
-                    <td>Sebastián Rubio Quiroz</td>
-                    <td>
-                        <a href="edit_teacher.php"><button class="link__meet">Editar</button></a>
-                    </td>
-                </tr>
             </table>
         </div>
     </main>
