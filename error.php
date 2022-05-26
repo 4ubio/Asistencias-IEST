@@ -30,7 +30,7 @@
         <div class="div__success div__error">
             <h2 class="container">La reunión a la cual intenta registrarse no existe. Probablemente fue borrada o el enlace de ingreso es incorrecto.</h2>
             <img src="assets/delfin.gif" alt="delfin" class="delfin container">
-            <p>Pero puede observar al delfín 😎</p>
+            <p><b>Pero puede observar al delfín 😎</b></p>
         </div>
     </div>
     
