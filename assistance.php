@@ -1,3 +1,7 @@
+<?php 
+    require_once 'controller/assistance_controller.php';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -24,10 +28,10 @@
         </div>
     </header>
 
-    <h1>Capacitación CISCO</h1>
+    <h1><?php echo $meet['name']; ?></h1>
     
     <div class="container">
-        <form action="" class="form">
+        <form action="" class="form" method="post">
             <h2 class="container">Introduzca los siguientes datos para registrar su entrada o salida: </h2>
             
             <div class="form__action">
@@ -42,7 +46,7 @@
             <input autocomplete="off" name="id_iest" type="number" placeholder="ID IEST" class="form__field" onkeypress = "return isNumeric(event)" oninput = "maxLengthCheck(this)" min = "1" max = "99999" value="">
 
             <div class="container">
-                <input type="submit" value="Registrar" class="form__submit">
+                <input type="submit" value="Registrar" class="form__submit" name="assistance">
             </div>
         </form>
     </div>

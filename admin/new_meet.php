@@ -1,3 +1,7 @@
+<?php 
+    require_once 'controller/new_meet_controller.php';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -46,17 +50,25 @@
         <h1>Nueva reunión</h1>
 
         <div class="container">
-            <form action="" class="form">
+            <form action="" class="form" method="post">
                 <h2>Ingrese los siguientes datos:</h2>
-                <input autocomplete="off" name="name" type="text" placeholder="Nombre de la reunión" class="form__field" value="">
-                <input autocomplete="off" name="salon" type="number" placeholder="Número de salón" class="form__field" value="">
-                <input autocomplete="off" name="speaker" type="text" placeholder="Nombre de la persona que imparte la reunión" class="form__field" value="">
-                <input autocomplete="off" name="link" type="text" placeholder="Enlace de Google Forms" class="form__field" value="">
-                <input name="date" id="date" type="date" class="form__field" value="">
-                <input name="hour" type="time" class="form__field" value="">
+
+                <!--Mostrar todos los errores dentro del arreglo-->
+                <?php foreach($errors as $error) : ?>
+                    <div class="error__alert">
+                        <?php echo $error ?>
+                    </div>
+                <?php endforeach; ?>
+
+                <input autocomplete="off" name="name" type="text" placeholder="Nombre de la reunión" class="form__field" value="<?php echo $name; ?>">
+                <input autocomplete="off" name="salon" type="number" placeholder="Número de salón" class="form__field" value="<?php echo $salon; ?>">
+                <input autocomplete="off" name="speaker" type="text" placeholder="Nombre de la persona que imparte la reunión" class="form__field" value="<?php echo $speaker; ?>">
+                <input autocomplete="off" name="link" type="text" placeholder="Enlace de Google Forms" class="form__field" value="<?php echo $link; ?>">
+                <input name="date" id="date" type="date" class="form__field" value="<?php echo $date; ?>">
+                <input name="time" type="time" class="form__field" value="<?php echo $time; ?>">
 
                 <div class="container">
-                    <input type="submit" value="Crear" class="form__submit">
+                    <input type="submit" value="Crear" class="form__submit" name="new_meet">
                 </div>
             </form>
         </div>

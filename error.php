@@ -1,7 +1,3 @@
-<?php 
-    require_once 'controller/assistance_controller.php';
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -28,12 +24,13 @@
         </div>
     </header>
 
-    <h1><?php echo $meet['name']; ?></h1>
+    <h1>La reunión no ha sido encontrada 😢</h1>
     
     <div class="container">
-        <div class="div__success">
-            <h2 class="container">Ha registrado su entrada y salida correctamente. Por favor, ingrese al siguiente enlace y conteste el Google Forms.</h2>
-            <a href="<?php echo $meet['link']; ?>" class="container google_form">Google forms</a>
+        <div class="div__success div__error">
+            <h2 class="container">La reunión a la cual intenta registrarse no existe. Probablemente fue borrada o el enlace de ingreso es incorrecto.</h2>
+            <img src="assets/delfin.gif" alt="delfin" class="delfin container">
+            <p>Pero puede observar al delfín 😎</p>
         </div>
     </div>
     

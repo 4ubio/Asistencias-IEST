@@ -1,3 +1,8 @@
+<?php 
+    require_once 'controller/meet_controller.php';
+    $resultGet = $_GET['result'] ?? null;
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -43,22 +48,27 @@
             <div class="line3"></div>
         </div>
 
-        <h1>Capacitación CISCO 1</h1>
+        <?php if(intval($resultGet) === 1) : ?>
+            <p class="success__alert">Ha editado correctamente la reunión.</p>
+        <?php endif; ?>
+
+        <h1><?php echo $meet['name']; ?></h1>
         
         <div class="container">
             <div class="container__qr">
-                <img src="https://chart.googleapis.com/chart?cht=qr&chl=www.google.com&chs=160x160&chld=L|0" alt="qr" class="qr">
+                <img src="https://chart.googleapis.com/chart?cht=qr&chl=http://localhost:3000/assistance.php?id=<?php echo $meet['id']; ?>&chs=160x160&chld=L|0" alt="qr" class="qr">
                 <h3>Código QR para el registro de los maestros</h3>
 
-                <p>Salón: <span><b>666</b></span></p>
-                <p>Impartido por: <span><b>Sebastián Rubio Quiroz</b></span></p>
-                <p>Fecha: <span><b>23/05/2022</b></span></p>
-                <p>Hora: <span><b>16:13</b></span></p>
+                <p>Salón: <span><b><?php echo $meet['classroom']; ?></b></span></p>
+                <p>Impartido por: <span><b><?php echo $meet['speaker']; ?></b></span></p>
+                <p>Google Forms: <span><b><?php echo $meet['link']; ?></b></span></p>
+                <p>Fecha: <span><b><?php echo $meet['date']; ?></b></span></p>
+                <p>Hora: <span><b><?php echo $meet['time']; ?></b></span></p>
 
                 <div class="container3">
-                    <a href="edit_meet.php" class="link__meet">Editar</a>
-                    <a href="assistance_en.php" class="link__meet">Entradas</a>
-                    <a href="assistance_ex.php" class="link__meet">Salidas</a>
+                    <a href="edit_meet.php?id=<?php echo $meet['id']; ?>" class="link__meet">Editar</a>
+                    <a href="assistance_en.php?id=<?php echo $meet['id']; ?>" class="link__meet">Entradas</a>
+                    <a href="assistance_ex.php?id=<?php echo $meet['id']; ?>" class="link__meet">Salidas</a>
                 </div>
             </div>
         </div>

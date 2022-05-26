@@ -1,3 +1,8 @@
+<?php 
+    require_once 'controller/meetings_controller.php';
+    $resultGet = $_GET['result'] ?? null;
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -43,14 +48,17 @@
             <div class="line3"></div>
         </div>
 
+        <?php if(intval($resultGet) === 1) : ?>
+            <p class="success__alert">Ha registrado correctamente una nueva reunión.</p>
+        <?php endif; ?>
+
         <h1>Bienvenido, Administrador.</h1>
         <h2>Reuniones registradas:</h2>
 
         <div class="container_meet">
-            <a href="meet.php" class="link__meet">Capacitación CISCO 1</a>
-            <a href="meet.php" class="link__meet">Capacitación CISCO 2</a>
-            <a href="meet.php" class="link__meet">Capacitación CISCO 3</a>
-            <a href="meet.php" class="link__meet">Capacitación CISCO 4</a>
+            <?php while($meet = mysqli_fetch_assoc($result)) : ?>
+            <a href="meet.php?id=<?php echo $meet['id']; ?>" class="link__meet"><?php echo $meet['name']; ?></a>
+            <?php endwhile; ?>
         </div>
     </main>
 
