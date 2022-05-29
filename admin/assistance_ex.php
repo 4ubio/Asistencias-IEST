@@ -1,3 +1,8 @@
+<?php 
+    require_once 'controller/edit_meetings_controller.php';
+    require_once 'controller/assistance_ex_controller.php';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -43,7 +48,7 @@
             <div class="line3"></div>
         </div>
 
-        <h1>Capacitación CISCO: Salidas</h1>
+        <h1><?php echo $name ?>: Salidas</h1>
 
         <div class="table-container">
             <table class="table-menu">
@@ -55,21 +60,16 @@
                     <th>Hora</th> 
                 </tr>
                     
+                <?php while($register = mysqli_fetch_assoc($result)) : ?>
                 <tr>
-                    <td>Sebastián Rubio Quiroz</td>
-                    <td>19666</td>
-                    <td>Salida</td>
-                    <td>23/05/2022</td>
-                    <td>16:43</td>
+                    <td><?php echo $register['name'] ?></td>
+                    <td><?php echo $register['id_iest'] ?></td>
+                    <td><?php echo $register['action'] ?></td>
+                    <td><?php echo $register['date'] ?></td>
+                    <td><?php echo $register['time'] ?></td>
                 </tr>
+                <?php endwhile; ?>
 
-                <tr>
-                    <td>Sebastián Rubio Quiroz</td>
-                    <td>19666</td>
-                    <td>Salida</td>
-                    <td>23/05/2022</td>
-                    <td>16:43</td>
-                </tr>
             </table>
         </div>
     </main>

@@ -1,5 +1,6 @@
 <?php 
     require_once 'controller/assistance_controller.php';
+    $resultGet = $_GET['result'] ?? null;
 ?>
 
 <!DOCTYPE html>
@@ -29,11 +30,25 @@
     </header>
 
     <h1><?php echo $meet['name']; ?></h1>
+
+    <?php if(intval($resultGet) === 1) : ?>
+        <p class="success__alert">Ha registrado su entrada correctamente. Al terminar la reunión, registre su salida.</p>
+    <?php endif; ?>
+    <?php if(intval($resultGet) === 2) : ?>
+        <p class="success__alert">Ha registrado su salida correctamente.</p>
+    <?php endif; ?>
     
     <div class="container">
         <form action="" class="form" method="post">
             <h2 class="container">Introduzca los siguientes datos para registrar su entrada o salida: </h2>
             
+            <!--Mostrar todos los errores dentro del arreglo-->
+            <?php foreach($errors as $error) : ?>
+                <div class="error__alert">
+                    <?php echo $error ?>
+                </div>
+            <?php endforeach; ?>
+
             <div class="form__action">
                 <legend class="form__legend">Seleccione una acción: </legend>
 
@@ -43,7 +58,7 @@
                 </select>
             </div>
             
-            <input autocomplete="off" name="id_iest" type="number" placeholder="ID IEST" class="form__field" onkeypress = "return isNumeric(event)" oninput = "maxLengthCheck(this)" min = "1" max = "99999" value="">
+            <input autocomplete="off" name="id_iest" type="number" placeholder="ID IEST" class="form__field" onkeypress = "return isNumeric(event)" oninput = "maxLengthCheck(this)" min = "1" max = "99999" value="<?php echo $id_iest; ?>">
 
             <div class="container">
                 <input type="submit" value="Registrar" class="form__submit" name="assistance">
