@@ -73,13 +73,6 @@
 
         //Si no hay errores
         if(count($errors) === 0){
-
-            if($action === 'entrada'){
-                $n = 1;
-            } else if ($action === 'salida'){
-                $n = 2;
-            }
-
             $query2 = "SELECT * FROM teachers WHERE id_iest = '$id_iest' LIMIT 1";
             $result2 = mysqli_query($db, $query2);
             $teacher = mysqli_fetch_assoc($result2);
@@ -89,9 +82,16 @@
             $result3 = mysqli_query($db, $query3);
 
             if($result3){
-                $url = "assistance.php?id=$id&result=$n";
-                header("Location: $url");
-                exit();
+                if($action === 'entrada'){
+                    $url = "assistance.php?id=$id&result=1";
+                    header("Location: $url");
+                    exit();
+                } else if ($action === 'salida'){
+                    $url = "assistance_success.php?id=$id";
+                    header("Location: $url");
+                    exit();
+                }
+                
             }
         }
     }

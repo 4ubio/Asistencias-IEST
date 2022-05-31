@@ -34,9 +34,6 @@
     <?php if(intval($resultGet) === 1) : ?>
         <p class="success__alert">Ha registrado su entrada correctamente. Al terminar la reunión, registre su salida.</p>
     <?php endif; ?>
-    <?php if(intval($resultGet) === 2) : ?>
-        <p class="success__alert">Ha registrado su salida correctamente.</p>
-    <?php endif; ?>
     
     <div class="container">
         <form action="" class="form" method="post">
