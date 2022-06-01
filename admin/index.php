@@ -1,3 +1,7 @@
+<?php 
+    require_once 'controller/auth_controller.php';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -27,12 +31,20 @@
     <h1>Administración</h1>
     
     <div class="container">
-        <form action="" class="form">
+        <form action="" class="form" method="post">
             <h2>Ingrese sus credenciales de administrador</h2>
-            <input autocomplete="off" name="user" type="text" placeholder="Usuario" class="form__field" value="">
-            <input autocomplete="off" name="password" type="password" placeholder="Contraseña" class="form__field" value="">
+
+            <!--Mostrar todos los errores dentro del arreglo-->
+            <?php foreach($errors as $error) : ?>
+                <div class="error__alert">
+                    <?php echo $error ?>
+                </div>
+            <?php endforeach; ?>
+
+            <input autocomplete="off" name="user" type="text" placeholder="Usuario" class="form__field" value="<?php echo $user; ?>">
+            <input autocomplete="off" name="password" type="password" placeholder="Contraseña" class="form__field" value="<?php echo $password; ?>">
             <div class="container">
-                <input type="submit" value="Ingresar" class="form__submit">
+                <input type="submit" value="Ingresar" class="form__submit" name="login">
             </div>
         </form>
     </div>

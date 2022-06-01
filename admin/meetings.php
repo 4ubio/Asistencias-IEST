@@ -1,5 +1,13 @@
 <?php 
     require_once 'controller/meetings_controller.php';
+    require_once 'controller/close_session_controller.php';
+
+    //Verificar si existe una sesión iniciada
+    if(!$_SESSION['admin']){
+        header('Location: index.php');
+        exit();
+    }
+
     $resultGet = $_GET['result'] ?? null;
 ?>
 
@@ -36,7 +44,7 @@
                 <li><a class="nav-li active" href="meetings.php">Reuniones</a></li>
                 <li><a class="nav-li" href="new_meet.php">Nueva reunión</a></li>
                 <li><a class="nav-li" href="teachers.php">Maestros</a></li>
-                <li><a class="nav-li" href="">Cerrar sesión</a></li>
+                <li><a class="nav-li" href="meetings.php?logout=1">Cerrar sesión</a></li>
             </ul>
         </div>
     </aside>
