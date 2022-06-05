@@ -54,15 +54,15 @@
         $idQuery = "SELECT * FROM teachers WHERE id_iest = '$id_iest' LIMIT 1";
         $idResult = mysqli_query($db, $idQuery);
 
-        if(($emailResult->num_rows) > 0){
-            if(strcmp($old_email, $email) !== 0){
-                $errors[] = "El correo electrónico ingresado ya está siendo ocupado";
-            }
-        }
-
         if(($idResult->num_rows) > 0){
             if(strcmp($old_id_iest, $id_iest) !== 0){
                 $errors[] = "El ID IEST ingresado ya está siendo ocupado";
+            }
+        }
+        
+        if(($emailResult->num_rows) > 0){
+            if(strcmp($old_email, $email) !== 0){
+                $errors[] = "El correo electrónico ingresado ya está siendo ocupado";
             }
         }
 
