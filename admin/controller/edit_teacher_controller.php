@@ -68,6 +68,8 @@
 
         //Si no hay errores
         if(count($errors) === 0){
+            $name = strtoupper($name);
+
             $query2= "UPDATE teachers SET id_iest = ${id_iest}, name = '${name}', email = '${email}' WHERE id_iest = ${old_id_iest}";
             $result2 = mysqli_query($db, $query2);
 

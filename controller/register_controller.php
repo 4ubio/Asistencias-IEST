@@ -6,11 +6,13 @@
     $id_iest = "";
     $email = "";
     $name = "";
+    $lastname = "";
 
     if(isset($_POST['signup'])){
         $id_iest = mysqli_real_escape_string( $db, $_POST['id_iest'] );
         $email = mysqli_real_escape_string( $db, $_POST['mail'] );
         $name = mysqli_real_escape_string( $db, $_POST['name'] );
+        $lastname = mysqli_real_escape_string( $db, $_POST['lastname'] );
         
         if(!$id_iest) {
             $errors[] = "Debe ingresar su ID IEST";
@@ -25,7 +27,11 @@
         }
 
         if(!$name) {
-            $errors[] = "Debe ingresar su nombre completo";
+            $errors[] = "Debe ingresar su nombre o nombres";
+        }
+
+        if(!$lastname) {
+            $errors[] = "Debe ingresar sus apellidos";
         }
 
         //Verificación de existencia previa de ID y Email
@@ -46,7 +52,10 @@
 
         //Si no hay errores
         if(count($errors) === 0){
-            $query = "INSERT INTO teachers (id_iest, name, email) VALUES ('$id_iest', '$name', '$email')";
+            $fullname = $name . " " . $lastname;
+            $fullname = strtoupper($fullname);
+
+            $query = "INSERT INTO teachers (id_iest, name, email) VALUES ('$id_iest', '$fullname', '$email')";
             $result = mysqli_query($db, $query);
 
             if($result){

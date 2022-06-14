@@ -48,7 +48,8 @@
 
             <input autocomplete="off" name="id_iest" type="number" placeholder="ID IEST" class="form__field" onkeypress = "return isNumeric(event)" oninput = "maxLengthCheck(this)" min = "1" max = "99999" value="<?php echo $id_iest; ?>">
             <input autocomplete="off" name="mail" type="email" placeholder="Correo institucional" class="form__field" value="<?php echo $email; ?>">
-            <input autocomplete="off" name="name" type="text" placeholder="Nombre completo" class="form__field" value="<?php echo $name; ?>">
+            <input autocomplete="off" name="name" type="text" placeholder="Nombre(s)" class="form__field" value="<?php echo $name; ?>">
+            <input autocomplete="off" name="lastname" type="text" placeholder="Apellidos" class="form__field" value="<?php echo $lastname; ?>">
             <div class="container">
                 <input type="submit" value="Registrar" class="form__submit" name="signup">
             </div>
