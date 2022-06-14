@@ -7,7 +7,8 @@
     $salon = "";
     $speaker = "";
     $link = "";
-    $date = "";
+    $date_ini = "";
+    $date_fin = "";
     $time = "";
 
     if(isset($_POST['new_meet'])){
@@ -15,7 +16,8 @@
         $salon = mysqli_real_escape_string( $db, $_POST['salon'] );
         $speaker = mysqli_real_escape_string( $db, $_POST['speaker'] );
         $link = mysqli_real_escape_string( $db, $_POST['link'] );
-        $date = mysqli_real_escape_string( $db, $_POST['date'] );
+        $date_ini = mysqli_real_escape_string( $db, $_POST['date_ini'] );
+        $date_fin = mysqli_real_escape_string( $db, $_POST['date_fin'] );
         $time = mysqli_real_escape_string( $db, $_POST['time'] );
 
         if(!$name) {
@@ -34,8 +36,12 @@
             $errors[] = "Debe ingresar el enlace del Google Forms que se contestará al terminar la reunión";
         }
 
-        if(!$date) {
-            $errors[] = "Debe ingresar la fecha cuando se realizará la reunión";
+        if(!$date_ini) {
+            $errors[] = "Debe ingresar la fecha cuando iniciará la reunión";
+        }
+
+        if(!$date_fin) {
+            $errors[] = "Debe ingresar la fecha cuando finalizará la reunión";
         }
 
         if(!$time) {
@@ -43,7 +49,7 @@
         }
 
         if(count($errors) === 0){
-            $query = "INSERT INTO meetings (name, classroom, speaker, date, time, link) VALUES ('$name', '$salon', '$speaker', '$date', '$time', '$link')";
+            $query = "INSERT INTO meetings (name, classroom, speaker, date, date_fin, time, link) VALUES ('$name', '$salon', '$speaker', '$date_ini', '$date_fin', '$time', '$link')";
             $result = mysqli_query($db, $query);
 
             if($result){

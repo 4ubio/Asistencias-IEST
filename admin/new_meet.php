@@ -71,7 +71,11 @@
                 <input autocomplete="off" name="salon" type="number" placeholder="Número de salón" class="form__field" value="<?php echo $salon; ?>">
                 <input autocomplete="off" name="speaker" type="text" placeholder="Nombre de la persona que imparte la reunión" class="form__field" value="<?php echo $speaker; ?>">
                 <input autocomplete="off" name="link" type="text" placeholder="Enlace de Google Forms" class="form__field" value="<?php echo $link; ?>">
-                <input name="date" id="date" type="date" class="form__field" value="<?php echo $date; ?>">
+                <p class="label">Fecha de inicio</p>
+                <input name="date_ini" id="date_ini" type="date" class="form__field" value="<?php echo $date_ini; ?>">
+                <p class="label">Fecha de fin</p>
+                <input name="date_fin" id="date_fin" type="date" class="form__field" value="<?php echo $date_fin; ?>">
+                <p class="label">Hora</p>
                 <input name="time" type="time" class="form__field" value="<?php echo $time; ?>">
 
                 <div class="container">

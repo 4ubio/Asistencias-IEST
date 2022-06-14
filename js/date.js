@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    deshabilitarFechaAnterior();
+    deshabilitarFechaAnterior('#date_ini');
+    deshabilitarFechaAnterior('#date_fin');
 });
 
-function deshabilitarFechaAnterior(){
-    const inputFecha = document.querySelector('#date');
+function deshabilitarFechaAnterior(id){
+    const inputFecha = document.querySelector(id);
     console.log(inputFecha);
     const fechaAhora = new Date();
     const year = fechaAhora.getFullYear();

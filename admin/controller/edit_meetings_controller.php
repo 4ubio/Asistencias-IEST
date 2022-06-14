@@ -23,7 +23,8 @@
     $salon = $meet['classroom'];
     $speaker = $meet['speaker'];
     $link = $meet['link'];
-    $date = $meet['date'];
+    $date_ini = $meet['date'];
+    $date_fin = $meet['date_fin'];
     $time = $meet['time'];
 
     if(isset($_POST['edit_meet'])){
@@ -31,7 +32,8 @@
         $salon = mysqli_real_escape_string( $db, $_POST['salon'] );
         $speaker = mysqli_real_escape_string( $db, $_POST['speaker'] );
         $link = mysqli_real_escape_string( $db, $_POST['link'] );
-        $date = mysqli_real_escape_string( $db, $_POST['date'] );
+        $date_ini = mysqli_real_escape_string( $db, $_POST['date_ini'] );
+        $date_fin = mysqli_real_escape_string( $db, $_POST['date_fin'] );
         $time = mysqli_real_escape_string( $db, $_POST['time'] );
 
         if(!$name) {
@@ -50,8 +52,12 @@
             $errors[] = "Debe ingresar el enlace del Google Forms que se contestará al terminar la reunión";
         }
 
-        if(!$date) {
-            $errors[] = "Debe ingresar la fecha cuando se realizará la reunión";
+        if(!$date_ini) {
+            $errors[] = "Debe ingresar la fecha cuando iniciará la reunión";
+        }
+
+        if(!$date_fin) {
+            $errors[] = "Debe ingresar la fecha cuando finalizará la reunión";
         }
 
         if(!$time) {
@@ -59,7 +65,7 @@
         }
 
         if(count($errors) === 0){
-            $query = "UPDATE meetings SET name = '${name}', classroom = ${salon}, speaker = '${speaker}', date = '${date}', time = '${time}', link = '${link}' WHERE id = ${id}";
+            $query = "UPDATE meetings SET name = '${name}', classroom = ${salon}, speaker = '${speaker}', date = '${date_ini}', date_fin = '${date_fin}', time = '${time}', link = '${link}' WHERE id = ${id}";
             $result = mysqli_query($db, $query);
 
             if($result){
