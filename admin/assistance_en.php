@@ -59,6 +59,8 @@
 
         <div class="table-container">
             <table class="table-menu">
+                <h2><?php echo $date_ref ?></h2>
+                
                 <tr class="headers">
                     <th>Nombre</th>
                     <th>ID IEST</th>
@@ -66,19 +68,45 @@
                     <th>Fecha</th>
                     <th>Hora</th> 
                 </tr>
-                
-                <?php while($register = mysqli_fetch_assoc($result)) : ?>
+
+            <?php while($register = mysqli_fetch_assoc($result)) : ?>
+
+                <?php if($register['date'] === $date_ref) :?>
                 <tr>
-                    <td><?php echo $register['name'] ?></td>
+                    <td><?php echo $register['name']?></td>
                     <td><?php echo $register['id_iest'] ?></td>
                     <td><?php echo $register['action'] ?></td>
                     <td><?php echo $register['date'] ?></td>
                     <td><?php echo $register['time'] ?></td>
                 </tr>
-                <?php endwhile; ?>
 
+                <?php else: $date_ref = $register['date']; ?>
+                
+                <table class="table-menu">
+
+                    <h2><?php echo $date_ref ?></h2>
+
+                    <tr class="headers">
+                        <th>Nombre</th>
+                        <th>ID IEST</th>
+                        <th>Acción</th>
+                        <th>Fecha</th>
+                        <th>Hora</th> 
+                    </tr>
+
+                    <tr>
+                        <td><?php echo $register['name']?></td>
+                        <td><?php echo $register['id_iest'] ?></td>
+                        <td><?php echo $register['action'] ?></td>
+                        <td><?php echo $register['date'] ?></td>
+                        <td><?php echo $register['time'] ?></td>
+                    </tr>
+
+                <?php endif;?>
+            <?php endwhile; ?>
             </table>
         </div>
+
     </main>
 
     <script src="../js/admin.js"></script>

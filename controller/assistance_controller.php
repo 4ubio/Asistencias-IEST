@@ -44,13 +44,13 @@
             //Si existe registro del maestro
             } else {
                 //Revisar si el maestro ha hecho registro de asistencias previos
-                $queryCheck = "SELECT * FROM assistance WHERE id_iest = '$id_iest' AND action = 'entrada' AND id_meet = '$id' LIMIT 1";
+                $queryCheck = "SELECT * FROM assistance WHERE id_iest = '$id_iest' AND action = 'entrada' AND id_meet = '$id' AND date = '$date' LIMIT 1";
                 $resultCheck = mysqli_query($db, $queryCheck);
 
                 //El maestro intenta registrar entrada pero ya lo ha hecho
                 if ($action === 'entrada'){
                     if($resultCheck->num_rows){
-                        $errors[] = "Ya ha registrado su entrada";
+                        $errors[] = "Ya ha registrado su entrada por hoy";
                     }
                 }
 
@@ -61,11 +61,11 @@
                     }
 
                     //El maestro intenta registrar salida pero ya lo ha hecho
-                    $queryCheck2 = "SELECT * FROM assistance WHERE id_iest = '$id_iest' AND action = 'salida'  AND id_meet = '$id' LIMIT 1";
+                    $queryCheck2 = "SELECT * FROM assistance WHERE id_iest = '$id_iest' AND action = 'salida'  AND id_meet = '$id' AND date = '$date' LIMIT 1";
                     $resultCheck2 = mysqli_query($db, $queryCheck2);
 
                     if($resultCheck2->num_rows){
-                        $errors[] = "Ya ha registrado su salida";
+                        $errors[] = "Ya ha registrado su salida por hoy";
                     }
                 }
             }
