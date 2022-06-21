@@ -1,4 +1,12 @@
 <?php 
+    $resultGet = $_GET['result'] ?? null;
+
+    if (intval($resultGet) === 2) {
+        $r = 3;
+    } else {
+        $r = 1;
+    }
+
     require './config/database.php';
     $db = conectardb();
 
@@ -59,7 +67,8 @@
             $result = mysqli_query($db, $query);
 
             if($result){
-                header('Location: register.php?result=1');
+                $url = "register.php?result=$r";
+                header("Location: $url");
                 exit();
             }
         }

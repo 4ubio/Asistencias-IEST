@@ -17,6 +17,8 @@
     }
 
     $meet = mysqli_fetch_assoc($result1);
+    $date_ini = $meet['date'];
+    $date_fin = $meet['date_fin'];
 
     $errors = array();
     $id_iest = "";
@@ -40,7 +42,7 @@
 
             //No existe registro del maestro
             if(!$idResult->num_rows){
-                $errors[] = "El ID IEST no ha sido registrado";
+                $errors[] = "<a href='register.php?result=2' class='advice'>El ID IEST no ha sido registrado. De click aquí para registrarse.</a>";
             //Si existe registro del maestro
             } else {
                 //Revisar si el maestro ha hecho registro de asistencias previos
@@ -68,6 +70,14 @@
                         $errors[] = "Ya ha registrado su salida por hoy";
                     }
                 }
+            }
+        }
+
+        if (strtotime($date) < strtotime($date_ini)) {
+            $errors[] = "Todavía no puede registrar su asistencia";
+        } else if (strtotime($date) >= strtotime($date_ini)) {
+            if (strtotime($date) > strtotime($date_fin)) {
+                $errors[] = "El periodo de registro ha finalizado";
             }
         }
 

@@ -182,3 +182,19 @@ h1 {
         width: 30%;
     }
 }
+
+.advice {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.advice__alert {
+    padding: .5rem;
+    text-align: center;
+    color: var(--white);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 1rem 2rem;
+    border-radius: .7rem;
+    background-color: orange;
+}

@@ -86,6 +86,5 @@
     </main>
 
     <script src="../js/admin.js"></script>
-    <script src="../js/date.js"></script>
 </body>
 </html>

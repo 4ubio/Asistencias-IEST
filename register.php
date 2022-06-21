@@ -1,6 +1,5 @@
 <?php 
     require_once 'controller/register_controller.php';
-    $resultGet = $_GET['result'] ?? null;
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +30,12 @@
 
     <?php if(intval($resultGet) === 1) : ?>
         <p class="success__alert">Ha sido registrado correctamente. Por favor, cierre la pestaña y espere a la siguiente reunión.</p>
+    <?php endif; ?>
+    <?php if(intval($resultGet) === 2) : ?>
+        <p class="advice__alert">Por favor, registrese y al finalizar vuelva a escanear el código QR.</p>
+    <?php endif; ?>
+    <?php if(intval($resultGet) === 3) : ?>
+        <p class="success__alert">Ha sido registrado correctamente. Por favor, vuelva a escanear el código QR.</p>
     <?php endif; ?>
 
     <h1>Registro de maestros</h1>

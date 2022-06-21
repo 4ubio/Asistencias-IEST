@@ -61,13 +61,26 @@
         <?php endif; ?>
 
         <h1>Bienvenido, Administrador.</h1>
-        <h2>Reuniones registradas:</h2>
+        <h2>Reuniones pendientes:</h2>
 
         <div class="container_meet">
             <?php while($meet = mysqli_fetch_assoc($result)) : ?>
-            <a href="meet.php?id=<?php echo $meet['id']; ?>" class="link__meet"><?php echo $meet['name']; ?></a>
+                <?php if(strtotime($meet['date_fin']) >= strtotime($date_of_today)) :?>
+                <a href="meet.php?id=<?php echo $meet['id']; ?>" class="link__meet"><?php echo $meet['name']; ?></a>
+                <?php endif;?>
             <?php endwhile; ?>
         </div>
+
+        <h2>Reuniones pasadas:</h2>
+
+        <div class="container_meet">
+            <?php while($meet = mysqli_fetch_assoc($result2)) : ?>
+                <?php if(strtotime($meet['date_fin']) < strtotime($date_of_today)) :?>
+                <a href="meet.php?id=<?php echo $meet['id']; ?>" class="link__meet"><?php echo $meet['name']; ?></a>
+                <?php endif;?>
+            <?php endwhile; ?>
+        </div>
+
     </main>
 
     <script src="../js/admin.js"></script>
