@@ -339,3 +339,7 @@ tr:hover{
     border-radius: .7rem;
     background-color: green;
 }
+
+.delete {
+    background-color: red;
+}

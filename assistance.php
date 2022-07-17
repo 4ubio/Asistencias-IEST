@@ -47,7 +47,7 @@
             <?php endforeach; ?>
 
             <div class="form__action">
-                <legend class="form__legend">Seleccione una acción: </legend>
+                <legend class="form__legend">Selecciona tu entrada o salida del curso: </legend>
 
                 <select name="action" id="" class="form__select">
                     <option value="entrada">Entrada</option>
@@ -58,7 +58,7 @@
             <input autocomplete="off" name="id_iest" type="number" placeholder="ID IEST" class="form__field" onkeypress = "return isNumeric(event)" oninput = "maxLengthCheck(this)" min = "1" max = "99999" value="<?php echo $id_iest; ?>">
 
             <div class="container">
-                <input type="submit" value="Registrar" class="form__submit" name="assistance">
+                <input type="submit" value="Registra tu asistencia aquí" class="form__submit" name="assistance">
             </div>
         </form>
     </div>

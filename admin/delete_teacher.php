@@ -1,14 +1,6 @@
 <?php 
-    require_once 'controller/teachers_controller.php';
+    require_once 'controller/delete_teacher_controller.php';
     require_once 'controller/close_session_controller.php';
-
-    //Verificar si existe una sesión iniciada
-    if(!$_SESSION['admin']){
-        header('Location: index.php');
-        exit();
-    }
-    
-    $resultGet = $_GET['result'] ?? null;
 ?>
 
 <!DOCTYPE html>
@@ -56,38 +48,17 @@
             <div class="line3"></div>
         </div>
 
-        <h1>Maestros registrados</h1>
+        <h1>Eliminar maestro</h1>
 
-        <?php if(intval($resultGet) === 1) : ?>
-            <p class="success__alert">Maestro actualizado correctamente.</p>
-        <?php elseif(intval($resultGet) === 2) : ?>
-            <p class="success__alert">Maestro eliminado correctamente.</p>
-        <?php endif; ?>
+        <div class="container">
+            <form action="" class="form" method="post">
+                <h2>¿Estas seguro de eliminar a <span><u><?php echo $teacher['name']; ?></u></span>?</h2>
+                <p><b>Se eliminarán todos sus registros de asistencia.</b></p>
 
-        <div class="table-container">
-            <table class="table-menu">
-                <tr class="headers">
-                    <th>ID IEST</th>
-                    <th>Correo</th>
-                    <th>Nombre</th>
-                    <th>Fecha de registro</th>
-                    <th>Editar</th>
-                </tr>
-                
-                <?php while($teacher = mysqli_fetch_assoc($result)) : ?>
-                <tr>
-                    <td><?php echo $teacher['id_iest'] ?></td>
-                    <td><?php echo $teacher['email'] ?></td>
-                    <td><?php echo $teacher['name'] ?></td>
-                    <td><?php echo $teacher['register_date'] ?></td>
-                    <td>
-                        <a href="edit_teacher.php?id_iest=<?php echo $teacher['id_iest']; ?>"><button class="link__meet">Editar</button></a>
-                        <a href="delete_teacher.php?id_iest=<?php echo $teacher['id_iest']; ?>"><button class="link__meet delete">Eliminar</button></a>
-                    </td>
-                </tr>
-                <?php endwhile; ?>
-
-            </table>
+                <div class="container">
+                    <input type="submit" value="Eliminar" class="form__submit delete" name="delete_teacher">
+                </div>
+            </form>
         </div>
     </main>
 

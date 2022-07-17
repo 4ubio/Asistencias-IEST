@@ -68,7 +68,7 @@
                 <?php endforeach; ?>
 
                 <input autocomplete="off" name="name" type="text" placeholder="Nombre de la reunión" class="form__field" value="<?php echo $name; ?>">
-                <input autocomplete="off" name="salon" type="number" placeholder="Número de salón" class="form__field" value="<?php echo $salon; ?>">
+                <input autocomplete="off" name="salon" type="text" placeholder="Número de salón" class="form__field" value="<?php echo $salon; ?>">
                 <input autocomplete="off" name="speaker" type="text" placeholder="Nombre de la persona que imparte la reunión" class="form__field" value="<?php echo $speaker; ?>">
                 <input autocomplete="off" name="link" type="text" placeholder="Enlace de Google Forms" class="form__field" value="<?php echo $link; ?>">
                 <p class="label">Fecha de inicio</p>

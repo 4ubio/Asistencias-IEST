@@ -1,14 +1,6 @@
 <?php 
-    require_once 'controller/meetings_controller.php';
+    require_once 'controller/delete_meet_controller.php';
     require_once 'controller/close_session_controller.php';
-
-    //Verificar si existe una sesión iniciada
-    if(!$_SESSION['admin']){
-        header('Location: index.php');
-        exit();
-    }
-
-    $resultGet = $_GET['result'] ?? null;
 ?>
 
 <!DOCTYPE html>
@@ -56,33 +48,18 @@
             <div class="line3"></div>
         </div>
 
-        <?php if(intval($resultGet) === 1) : ?>
-            <p class="success__alert">Ha registrado correctamente una nueva reunión.</p>
-        <?php elseif(intval($resultGet) === 2) : ?>
-            <p class="success__alert">Ha eliminado correctamente la reunión.</p>
-        <?php endif; ?>
+        <h1>Eliminar maestro</h1>
 
-        <h1>Bienvenido, Administrador.</h1>
-        <h2>Reuniones pendientes:</h2>
+        <div class="container">
+            <form action="" class="form" method="post">
+                <h2>¿Estas seguro de eliminar la reunión: <span><u><?php echo $meet['name']; ?></u></span>?</h2>
+                <p><b>Se eliminarán todos sus registros de asistencia y datos asociados a ella.</b></p>
 
-        <div class="container_meet">
-            <?php while($meet = mysqli_fetch_assoc($result)) : ?>
-                <?php if(strtotime($meet['date_fin']) >= strtotime($date_of_today)) :?>
-                <a href="meet.php?id=<?php echo $meet['id']; ?>" class="link__meet"><?php echo $meet['name']; ?></a>
-                <?php endif;?>
-            <?php endwhile; ?>
+                <div class="container">
+                    <input type="submit" value="Eliminar" class="form__submit delete" name="delete_meet">
+                </div>
+            </form>
         </div>
-
-        <h2>Reuniones pasadas:</h2>
-
-        <div class="container_meet">
-            <?php while($meet = mysqli_fetch_assoc($result2)) : ?>
-                <?php if(strtotime($meet['date_fin']) < strtotime($date_of_today)) :?>
-                <a href="meet.php?id=<?php echo $meet['id']; ?>" class="link__meet"><?php echo $meet['name']; ?></a>
-                <?php endif;?>
-            <?php endwhile; ?>
-        </div>
-
     </main>
 
     <script src="../js/admin.js"></script>
