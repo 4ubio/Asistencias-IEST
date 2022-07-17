@@ -65,7 +65,7 @@
         }
 
         if(count($errors) === 0){
-            $query = "UPDATE meetings SET name = '${name}', classroom = ${salon}, speaker = '${speaker}', date = '${date_ini}', date_fin = '${date_fin}', time = '${time}', link = '${link}' WHERE id = ${id}";
+            $query = "UPDATE meetings SET name = '${name}', classroom = '${salon}', speaker = '${speaker}', date = '${date_ini}', date_fin = '${date_fin}', time = '${time}', link = '${link}' WHERE id = ${id}";
             $result = mysqli_query($db, $query);
 
             if($result){
