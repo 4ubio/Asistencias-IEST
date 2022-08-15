@@ -6,7 +6,7 @@
         header('location: /admin/meetings.php');
     }
 
-    $query = "SELECT * FROM assistance WHERE id_meet = ${id} AND action = 'entrada' ORDER BY date ASC";
+    $query = "SELECT * FROM assistance WHERE id_meet = ${id} AND action = 'entrada' ORDER BY date ASC, time ASC";
     $result = mysqli_query($db, $query);
 
     $query_date = "SELECT MIN(date) FROM assistance WHERE id_meet = ${id} AND action = 'entrada'";

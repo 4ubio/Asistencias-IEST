@@ -70,7 +70,7 @@
                 <input autocomplete="off" name="name" type="text" placeholder="Nombre de la reunión" class="form__field" value="<?php echo $name; ?>">
                 <input autocomplete="off" name="salon" type="text" placeholder="Número de salón" class="form__field" value="<?php echo $salon; ?>">
                 <input autocomplete="off" name="speaker" type="text" placeholder="Nombre de la persona que imparte la reunión" class="form__field" value="<?php echo $speaker; ?>">
-                <input autocomplete="off" name="link" type="text" placeholder="Enlace de Google Forms" class="form__field" value="<?php echo $link; ?>">
+                <input autocomplete="off" name="link" type="text" placeholder="Enlace de evaluación del curso" class="form__field" value="<?php echo $link; ?>">
                 <p class="label">Fecha de inicio</p>
                 <input name="date_ini" id="date_ini" type="date" class="form__field" value="<?php echo $date_ini; ?>">
                 <p class="label">Fecha de fin</p>

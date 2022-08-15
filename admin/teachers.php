@@ -9,6 +9,7 @@
     }
     
     $resultGet = $_GET['result'] ?? null;
+    $i = 1; 
 ?>
 
 <!DOCTYPE html>
@@ -67,6 +68,7 @@
         <div class="table-container">
             <table class="table-menu">
                 <tr class="headers">
+                    <th>N</th>
                     <th>ID IEST</th>
                     <th>Correo</th>
                     <th>Nombre</th>
@@ -76,6 +78,7 @@
                 
                 <?php while($teacher = mysqli_fetch_assoc($result)) : ?>
                 <tr>
+                    <td><?php echo $i; $i++;?></td>
                     <td><?php echo $teacher['id_iest'] ?></td>
                     <td><?php echo $teacher['email'] ?></td>
                     <td><?php echo $teacher['name'] ?></td>

@@ -48,11 +48,17 @@
 
             <div class="form__action">
                 <legend class="form__legend">Selecciona tu entrada o salida del curso: </legend>
-
+                
+                <?php if(intval($resultGet) === 1) : ?>
+                    <select name="action" id="" class="form__select">
+                        <option value="salida">Salida</option>
+                    </select>
+                <?php else : ?>
                 <select name="action" id="" class="form__select">
                     <option value="entrada">Entrada</option>
                     <option value="salida">Salida</option>
                 </select>
+                <?php endif; ?>
             </div>
             
             <input autocomplete="off" name="id_iest" type="number" placeholder="ID IEST" class="form__field" onkeypress = "return isNumeric(event)" oninput = "maxLengthCheck(this)" min = "1" max = "99999" value="<?php echo $id_iest; ?>">

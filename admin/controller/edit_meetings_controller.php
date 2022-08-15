@@ -49,7 +49,7 @@
         }
 
         if(!$link) {
-            $errors[] = "Debe ingresar el enlace del Google Forms que se contestará al terminar la reunión";
+            $errors[] = "Debe ingresar el enlace de la evaluación del curso que se contestará al terminar la reunión";
         }
 
         if(!$date_ini) {

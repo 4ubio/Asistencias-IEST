@@ -32,8 +32,8 @@
     
     <div class="container">
         <div class="div__success">
-            <h2 class="container">Ha registrado su entrada y salida correctamente. Por favor, ingrese al siguiente enlace y conteste el Google Forms.</h2>
-            <a href="<?php echo $meet['link']; ?>" class="container google_form">Google forms</a>
+            <h2 class="container">Ha registrado su entrada y salida correctamente. Por favor, ingrese al siguiente enlace y conteste la evaluación del curso.</h2>
+            <a href="<?php echo $meet['link']; ?>" class="container google_form">Evaluación del curso</a>
         </div>
     </div>
     

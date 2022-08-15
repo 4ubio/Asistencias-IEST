@@ -69,7 +69,7 @@
 
                 <p>Salón: <span><b><?php echo $meet['classroom']; ?></b></span></p>
                 <p>Impartido por: <span><b><?php echo $meet['speaker']; ?></b></span></p>
-                <p>Google Forms: <span><b><?php echo $meet['link']; ?></b></span></p>
+                <p>Enlace de evaluación del curso: <span><b><?php echo $meet['link']; ?></b></span></p>
                 <p>Fecha de inicio: <span><b><?php echo $meet['date']; ?></b></span></p>
                 <p>Fecha de fin: <span><b><?php echo $meet['date_fin']; ?></b></span></p>
                 <p>Hora: <span><b><?php echo $meet['time']; ?></b></span></p>

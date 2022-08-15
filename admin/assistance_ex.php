@@ -8,6 +8,7 @@
         header('Location: index.php');
         exit();
     }
+    $i = 1; 
 ?>
 
 <!DOCTYPE html>
@@ -62,6 +63,7 @@
                 <h2><?php echo $date_ref ?></h2>
                 
                 <tr class="headers">
+                    <th>N</th>
                     <th>Nombre</th>
                     <th>ID IEST</th>
                     <th>Acción</th>
@@ -73,6 +75,7 @@
 
                 <?php if($register['date'] === $date_ref) :?>
                 <tr>
+                    <td><?php echo $i; $i++;?></td>
                     <td><?php echo $register['name']?></td>
                     <td><?php echo $register['id_iest'] ?></td>
                     <td><?php echo $register['action'] ?></td>
@@ -80,13 +83,17 @@
                     <td><?php echo $register['time'] ?></td>
                 </tr>
 
-                <?php else: $date_ref = $register['date']; ?>
+                <?php else: 
+                    $date_ref = $register['date']; 
+                    $i = 1; 
+                ?>
                 
                 <table class="table-menu">
 
                     <h2><?php echo $date_ref ?></h2>
 
                     <tr class="headers">
+                        <th>N</th>
                         <th>Nombre</th>
                         <th>ID IEST</th>
                         <th>Acción</th>
@@ -95,6 +102,7 @@
                     </tr>
 
                     <tr>
+                        <td><?php echo $i; $i++;?></td>
                         <td><?php echo $register['name']?></td>
                         <td><?php echo $register['id_iest'] ?></td>
                         <td><?php echo $register['action'] ?></td>
