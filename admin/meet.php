@@ -75,6 +75,7 @@
                 <p>Hora: <span><b><?php echo $meet['time']; ?></b></span></p>
 
                 <div class="container3">
+                    <a href="assistance.php?id=<?php echo $meet['id']; ?>" class="link__meet">Asistencias</a>
                     <a href="assistance_en.php?id=<?php echo $meet['id']; ?>" class="link__meet">Entradas</a>
                     <a href="assistance_ex.php?id=<?php echo $meet['id']; ?>" class="link__meet">Salidas</a>
                     <a href="edit_meet.php?id=<?php echo $meet['id']; ?>" class="link__meet">Editar</a>
